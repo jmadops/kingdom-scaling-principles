@@ -297,6 +297,7 @@ h1, h2, h3, h4, h5, h6 {
     text-decoration-color: #c2a859;
     text-decoration-thickness: 3px;
     text-underline-offset: 6px;
+    white-space: nowrap;
 }
 
 .hero-tagline {
@@ -1007,6 +1008,7 @@ h1, h2, h3, h4, h5, h6 {
     .hero-sub {
         font-size: 16px;
         margin-bottom: 32px;
+        margin-top: 12px;
     }
 
     .event-meta {
