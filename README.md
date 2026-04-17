@@ -16,26 +16,22 @@ Static landing pages + embedded Stripe checkout + Go High Level integration + op
 
 | Path | What it is |
 |---|---|
-| `kingdom-scaling-principles-lp/` | LP · No VSL · button-to-checkout |
-| `kingdom-scaling-principles-vsl-lp/` | LP · VSL · button-to-checkout |
-| `kingdom-scaling-principles-embedded-lp/` | LP · No VSL · embedded checkout at bottom **(control arm)** |
-| `kingdom-scaling-principles-vsl-embedded-lp/` | LP · VSL · embedded checkout at bottom **(treatment arm)** |
-| `checkout/` | Standalone branded checkout page (for email/retargeting links) |
+| `kingdom-scaling-principles-embedded-lp/` | LP · No VSL · embedded checkout **(control arm)** |
+| `kingdom-scaling-principles-vsl-embedded-lp/` | LP · VSL · embedded checkout **(treatment arm)** |
 | `thank-you/` | Post-purchase page |
 | `dashboard/` | Ops dashboard — live A/B + analytics (password-protected in prod) |
 | `api/` | Serverless functions (Stripe, GHL, tracking, dashboard reads) |
+| `shared/` | Frontend wiring — `funnel.js` handles Stripe mount + tracking |
 | `docs/` | Planning docs — checkout spec, dashboard spec, long-form handoff |
 
 ## The two live test pages
-
-Once wired up, these are the URLs paid ads point at:
 
 - `https://{domain}/a` — No VSL (control)
 - `https://{domain}/b` — VSL (treatment)
 
 Vercel rewrites `/a` → `kingdom-scaling-principles-embedded-lp/` and `/b` → `kingdom-scaling-principles-vsl-embedded-lp/` (see `vercel.json`).
 
-For a 50/50 random split, the landing URL in ads can be `https://{domain}/` which hits the A/B router (sets a cookie + redirects).
+**A/B testing is VWO-compatible.** The frontend reads `window.__variant` first, so if VWO assigns a variant, everything downstream (Stripe metadata, GHL tags, `/api/track` events) uses VWO's assignment. You can run with VWO on a single URL and skip the `/a` `/b` split entirely — the VSL element has `id="vsl-placeholder"` so VWO can hide it for the control group.
 
 ## API routes
 
@@ -74,9 +70,8 @@ Vercel auto-deploys on push to `main`. For manual deploys: `vercel --prod`.
 
 ## Current status
 
-- ✅ 4 LP variants built
-- ✅ Standalone checkout built
-- ✅ Dashboard prototype built (currently shows mock data; swap to `/api/metrics` once keys are in)
+- ✅ 2 LP variants built (both embedded checkout)
+- ✅ Dashboard prototype built (mock data; swap to `/api/metrics` once keys are in)
 - ✅ API routes built (Stripe, GHL proxy, tracking, config, metrics)
 - ✅ Frontend wiring (`/shared/funnel.js`) — Stripe mount, form submit, tracking events, VWO-compatible variant detection
 - ⏳ Waiting on keys (see `HANDOFF.md` and `DEPLOYMENT.md`)
