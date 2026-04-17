@@ -10,7 +10,7 @@ Static landing pages + embedded Stripe checkout + Go High Level integration + op
 4. `npm run dev` to run locally via `vercel dev`
 5. For deploy: push to `main` → Vercel auto-deploys. Env vars must be set in the Vercel dashboard, **not** in a committed file.
 
-**Read [`HANDOFF.md`](./HANDOFF.md) for the short version of what's needed from the dev team.**
+**Dev team:** read [`HANDOFF.md`](./HANDOFF.md) (what I need from you) and [`DEPLOYMENT.md`](./DEPLOYMENT.md) (step-by-step Vercel setup with env vars).
 
 ## What's in here
 
@@ -41,9 +41,11 @@ For a 50/50 random split, the landing URL in ads can be `https://{domain}/` whic
 
 | Route | Method | Purpose |
 |---|---|---|
+| `/api/config` | GET | Returns public config (`stripePublishableKey`, pixel IDs) — frontend calls this on page load. |
 | `/api/create-checkout-session` | POST | Creates a Stripe embedded Checkout Session. Frontend mounts the returned `clientSecret`. |
-| `/api/stripe-webhook` | POST | Receives `checkout.session.completed`. Writes purchase to KV, POSTs to GHL with tag `ksp-paid`. |
-| `/api/track` | POST | Frontend fires events (pageview, scroll_to_checkout, form_start). Increments KV counters. |
+| `/api/capture-lead` | POST | Frontend form submit → proxies to GHL inbound webhook with tag `ksp-lead`. Keeps webhook URL server-side. |
+| `/api/stripe-webhook` | POST | Receives `checkout.session.completed`. Writes purchase to KV, posts to GHL with tag `ksp-paid`. |
+| `/api/track` | POST | Frontend fires events (pageview, scroll_to_checkout, form_start, checkout_submit). Increments KV counters. |
 | `/api/metrics` | GET | Dashboard reads aggregated counters + recent activity. Protected by HTTP Basic Auth (`DASHBOARD_PASSWORD`). |
 
 ## Data flow
@@ -74,7 +76,7 @@ Vercel auto-deploys on push to `main`. For manual deploys: `vercel --prod`.
 
 - ✅ 4 LP variants built
 - ✅ Standalone checkout built
-- ✅ Dashboard prototype built (currently shows mock data)
-- ✅ API routes scaffolded
-- ⏳ Waiting on keys (see `HANDOFF.md`)
-- ⏳ Frontend Stripe/tracking wiring (the 3–4 hours after keys arrive)
+- ✅ Dashboard prototype built (currently shows mock data; swap to `/api/metrics` once keys are in)
+- ✅ API routes built (Stripe, GHL proxy, tracking, config, metrics)
+- ✅ Frontend wiring (`/shared/funnel.js`) — Stripe mount, form submit, tracking events, VWO-compatible variant detection
+- ⏳ Waiting on keys (see `HANDOFF.md` and `DEPLOYMENT.md`)
