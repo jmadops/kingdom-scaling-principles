@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kingdom Scaling Principles | A 2-Day Virtual Event with Skylar Lewis</title>
+    <title>Kingdom Scaling Principles | Watch & Reserve Your Seat — $29</title>
     <meta name="description" content="Join Skylar Lewis live for 2 days and walk away with the framework that's helped Christian business owners across 43 states scale past $1M without sacrificing family, health, or faith.">
+    <meta name="robots" content="noindex">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Open+Sans:ital,wght@0,400;0,600;1,400&family=Sora:wght@400;600;700&display=swap" rel="stylesheet">
@@ -277,18 +278,94 @@
     </section>
 
     <!-- ============================================
-         SECTION 8: FINAL CTA
+         SECTION 8: EMBEDDED CHECKOUT
          ============================================ -->
-    <section class="section section-final-cta" id="reserve">
+    <section class="section-embedded-checkout" id="reserve">
         <div class="final-cta-bg">
             <img src="assets/skylar-speaking-stage.jpg" alt="" aria-hidden="true">
             <div class="final-cta-overlay"></div>
         </div>
-        <div class="container-narrow final-cta-content">
+        <div class="container-narrow embedded-checkout-content">
             <span class="callout-pill callout-pill-gold">Live Virtual Event • 2 Days</span>
             <h2 class="section-heading">Reserve Your Seat For Kingdom Scaling&nbsp;Principles</h2>
             <p class="final-sub">Two days with Skylar Lewis. The complete framework. The same system that's behind $1M → $31M growth stories and restored families. All for $29.</p>
-            <a href="#reserve" class="btn btn-gold btn-large">Reserve My Seat Now — $29</a>
+
+            <!-- EMBEDDED CHECKOUT CARD -->
+            <div class="embed-checkout-card">
+
+                <!-- Order summary header -->
+                <div class="embed-summary">
+                    <div class="embed-summary-left">
+                        <p class="embed-summary-name">Kingdom Scaling Principles</p>
+                        <p class="embed-summary-desc">2-Day Live Virtual Event · Hosted by Skylar Lewis</p>
+                    </div>
+                    <div class="embed-summary-price">
+                        <span class="embed-summary-amount">$29</span>
+                        <span class="embed-summary-note">one-time</span>
+                    </div>
+                </div>
+
+                <!-- Step 1: Info -->
+                <div class="embed-step">
+                    <div class="embed-step-header">
+                        <span class="embed-step-num">1</span>
+                        <h3 class="embed-step-title">Your Information</h3>
+                    </div>
+                    <form class="embed-form" id="embed-form" novalidate>
+                        <label class="embed-field">
+                            <span class="embed-field-label">Full Name</span>
+                            <input type="text" name="name" id="embed-name" placeholder="John Smith" autocomplete="name" required>
+                        </label>
+                        <label class="embed-field">
+                            <span class="embed-field-label">Email Address</span>
+                            <input type="email" name="email" id="embed-email" placeholder="you@example.com" autocomplete="email" required>
+                        </label>
+                        <p class="embed-field-help">We'll send your event access and reminders to this email.</p>
+                    </form>
+                </div>
+
+                <!-- Step 2: Payment -->
+                <div class="embed-step">
+                    <div class="embed-step-header">
+                        <span class="embed-step-num">2</span>
+                        <h3 class="embed-step-title">Payment</h3>
+                        <div class="embed-methods">
+                            <span class="embed-method-chip">Card</span>
+                            <span class="embed-method-chip">Apple&nbsp;Pay</span>
+                            <span class="embed-method-chip">Google&nbsp;Pay</span>
+                        </div>
+                    </div>
+
+                    <div id="checkout" class="embed-stripe-mount">
+                        <div class="embed-stripe-placeholder">
+                            <div class="embed-stripe-icon">
+                                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg>
+                            </div>
+                            <p class="embed-stripe-title">Stripe Embedded Checkout</p>
+                            <p class="embed-stripe-note">Card fields + wallet buttons (Apple&nbsp;Pay / Google&nbsp;Pay) render here once Stripe is connected.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Submit -->
+                <button type="submit" form="embed-form" class="btn btn-gold btn-large btn-embed-submit">
+                    Complete My Registration — $29
+                </button>
+
+                <!-- Trust lines -->
+                <div class="embed-trust">
+                    <div class="embed-trust-line">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M12 2L4 6v6c0 5.5 3.5 10 8 11 4.5-1 8-5.5 8-11V6l-8-4z"/></svg>
+                        <span>Payments processed securely by Stripe. 256-bit SSL encrypted.</span>
+                    </div>
+                    <div class="embed-trust-line">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                        <span><strong>100% Satisfaction Guarantee.</strong> Show up to day one — if it doesn't deliver, email us for a full refund.</span>
+                    </div>
+                </div>
+
+            </div>
+
             <p class="hero-scarcity">Spots are limited. All 2025 Rise Up Kings events sold out. This virtual event will fill.</p>
             <img src="assets/ruk-logo.png" alt="Rise Up Kings" class="final-logo">
         </div>

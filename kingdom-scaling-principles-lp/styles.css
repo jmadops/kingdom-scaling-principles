@@ -315,53 +315,6 @@ h1, h2, h3, h4, h5, h6 {
     box-decoration-break: clone;
 }
 
-/* VSL Placeholder */
-.vsl-wrap {
-    width: 100%;
-    max-width: 780px;
-    margin: 36px auto 40px;
-}
-
-.vsl-placeholder {
-    position: relative;
-    padding-bottom: 56.25%;
-    border: 3px solid rgba(194, 168, 89, 0.5);
-    border-radius: 8px;
-    background: rgba(0, 0, 0, 0.4);
-    overflow: hidden;
-}
-
-.vsl-placeholder-inner {
-    position: absolute;
-    inset: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 14px;
-}
-
-.vsl-play-btn {
-    width: 72px;
-    height: 72px;
-    border-radius: 50%;
-    background: rgba(194, 168, 89, 0.2);
-    border: 2px solid rgba(194, 168, 89, 0.6);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #c2a859;
-}
-
-.vsl-label {
-    font-family: 'Sora', sans-serif;
-    font-size: 12px;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.15em;
-    color: rgba(255, 255, 255, 0.35);
-}
-
 .hero-sub {
     font-size: clamp(16px, 1.7vw, 18px);
     color: rgba(255, 255, 255, 0.68);
