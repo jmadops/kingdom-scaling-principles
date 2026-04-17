@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KSP Ops Dashboard</title>
+    <meta name="robots" content="noindex">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Open+Sans:wght@400;600;700&family=Sora:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/png" href="../kingdom-scaling-principles-lp/assets/ruk-logo.png">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header class="dash-header">
+        <div class="dash-header-inner">
+            <div class="dash-brand">
+                <img src="../kingdom-scaling-principles-lp/assets/ruk-logo.png" alt="Rise Up Kings">
+                <div>
+                    <span class="dash-brand-title">KSP Ops Dashboard</span>
+                    <span class="dash-brand-sub">Kingdom Scaling Principles · 2-Day Event</span>
+                </div>
+            </div>
+
+            <div class="dash-controls">
+                <div class="range-picker">
+                    <button class="range-btn" data-range="today">Today</button>
+                    <button class="range-btn is-active" data-range="7d">Last 7d</button>
+                    <button class="range-btn" data-range="30d">Last 30d</button>
+                    <button class="range-btn" data-range="all">All time</button>
+                </div>
+                <div class="live-indicator">
+                    <span class="live-dot"></span>
+                    <span class="live-text">Updated <span id="last-updated">12s</span> ago</span>
+                </div>
+            </div>
+        </div>
+        <div class="preview-banner">
+            <strong>PROTOTYPE</strong> · Showing mock data · Real data wires in once Stripe + Vercel KV are connected
+        </div>
+    </header>
+
+    <main class="dash-main">
+
+        <!-- TOP METRIC CARDS -->
+        <section class="metric-row">
+            <div class="metric-card">
+                <span class="metric-label">Visitors</span>
+                <span class="metric-value" data-count="1247">0</span>
+                <span class="metric-delta metric-up">↑ 12.4% vs prior period</span>
+            </div>
+            <div class="metric-card">
+                <span class="metric-label">Checkout Starts</span>
+                <span class="metric-value" data-count="353">0</span>
+                <span class="metric-delta metric-muted">28.3% of visitors</span>
+            </div>
+            <div class="metric-card">
+                <span class="metric-label">Purchases</span>
+                <span class="metric-value" data-count="41">0</span>
+                <span class="metric-delta metric-up">↑ 24% vs prior</span>
+            </div>
+            <div class="metric-card">
+                <span class="metric-label">Revenue</span>
+                <span class="metric-value metric-value-money">$<span data-count="1189">0</span></span>
+                <span class="metric-delta metric-muted">$29 × 41 purchases</span>
+            </div>
+            <div class="metric-card metric-card-highlight">
+                <span class="metric-label">Conversion Rate</span>
+                <span class="metric-value metric-value-gold" data-count="3.29" data-count-decimals="2">0.00</span><span class="metric-value-suffix">%</span>
+                <span class="metric-delta metric-up">↑ 0.4pp vs prior</span>
+            </div>
+        </section>
+
+        <!-- A/B TEST COMPARISON -->
+        <section class="ab-panel">
+            <div class="ab-header">
+                <span class="ab-eyebrow">A/B Test · 50/50 split</span>
+                <h2>VSL vs. No&nbsp;VSL</h2>
+                <p class="ab-sub">Single variable being tested: presence of the video sales letter in the hero. Checkout style is the same across both (embedded).</p>
+            </div>
+
+            <div class="ab-grid">
+                <div class="variant-card variant-a">
+                    <div class="variant-head">
+                        <span class="variant-tag">Variant A · Control</span>
+                        <h3>No VSL</h3>
+                    </div>
+                    <div class="variant-stats">
+                        <div class="stat-row"><span>Visitors</span><span class="stat-num" data-count="625">0</span></div>
+                        <div class="stat-row"><span>Started checkout</span><span class="stat-num" data-count="152">0</span></div>
+                        <div class="stat-row"><span>Purchases</span><span class="stat-num" data-count="17">0</span></div>
+                        <div class="stat-row"><span>Revenue</span><span class="stat-num">$<span data-count="493">0</span></span></div>
+                        <div class="stat-row stat-row-emphasis">
+                            <span>Conversion Rate</span>
+                            <span class="stat-cvr" data-count="2.72" data-count-decimals="2">0.00</span><span class="stat-cvr-suffix">%</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="variant-card variant-b is-winner">
+                    <div class="variant-head">
+                        <span class="variant-tag">Variant B · Treatment</span>
+                        <h3>With VSL <span class="winner-badge">LEADING</span></h3>
+                    </div>
+                    <div class="variant-stats">
+                        <div class="stat-row"><span>Visitors</span><span class="stat-num" data-count="622">0</span></div>
+                        <div class="stat-row"><span>Started checkout</span><span class="stat-num" data-count="201">0</span></div>
+                        <div class="stat-row"><span>Purchases</span><span class="stat-num" data-count="24">0</span></div>
+                        <div class="stat-row"><span>Revenue</span><span class="stat-num">$<span data-count="696">0</span></span></div>
+                        <div class="stat-row stat-row-emphasis">
+                            <span>Conversion Rate</span>
+                            <span class="stat-cvr" data-count="3.86" data-count-decimals="2">0.00</span><span class="stat-cvr-suffix">%</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="ab-verdict">
+                <div class="verdict-pill">
+                    <span class="verdict-dot"></span>
+                    <span>B leading by <strong>+1.14pp</strong></span>
+                </div>
+                <div class="verdict-confidence">
+                    <div class="confidence-bar">
+                        <div class="confidence-fill" style="width: 87%"></div>
+                    </div>
+                    <span class="confidence-label">87% confidence · Need 95% + min 100 purchases per arm to declare winner</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- CHARTS ROW -->
+        <section class="charts-row">
+            <div class="chart-card">
+                <div class="chart-header">
+                    <h3>Visitors Over Time</h3>
+                    <div class="chart-legend">
+                        <span class="legend-dot legend-a"></span><span>No VSL</span>
+                        <span class="legend-dot legend-b"></span><span>VSL</span>
+                    </div>
+                </div>
+                <div class="chart-wrap"><canvas id="visitorsChart"></canvas></div>
+            </div>
+
+            <div class="chart-card">
+                <div class="chart-header">
+                    <h3>Conversion Funnel</h3>
+                    <span class="chart-sub">Drop-off by step</span>
+                </div>
+                <div class="chart-wrap"><canvas id="funnelChart"></canvas></div>
+            </div>
+        </section>
+
+        <!-- REVENUE CHART -->
+        <section class="chart-card chart-card-wide">
+            <div class="chart-header">
+                <h3>Cumulative Revenue</h3>
+                <span class="chart-sub">Last 7 days · Stacked by variant</span>
+            </div>
+            <div class="chart-wrap chart-wrap-tall"><canvas id="revenueChart"></canvas></div>
+        </section>
+
+        <!-- LIVE ACTIVITY -->
+        <section class="activity-card">
+            <div class="activity-head">
+                <h3>Live Activity</h3>
+                <span class="activity-sub">Newest first · last 15 events</span>
+            </div>
+            <ul class="activity-list" id="activity-list"></ul>
+        </section>
+
+    </main>
+
+    <footer class="dash-footer">
+        <div class="footer-links">
+            <a href="https://dashboard.stripe.com/payments" target="_blank" rel="noopener">Stripe Dashboard ↗</a>
+            <span>·</span>
+            <a href="https://app.gohighlevel.com" target="_blank" rel="noopener">Go High Level ↗</a>
+            <span>·</span>
+            <a href="../kingdom-scaling-principles-vsl-embedded-lp/" target="_blank">View LP (VSL) ↗</a>
+            <span>·</span>
+            <a href="../kingdom-scaling-principles-embedded-lp/" target="_blank">View LP (no VSL) ↗</a>
+        </div>
+        <p class="footer-sync">Last sync: <span id="last-sync"></span> · Auto-refresh every 30s</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
