@@ -1,0 +1,17 @@
+{
+  "name": "kingdom-scaling-principles",
+  "version": "1.0.0",
+  "private": true,
+  "description": "KSP 2-Day Event funnel — landing pages, Stripe checkout, GHL integration, ops dashboard.",
+  "scripts": {
+    "dev": "vercel dev",
+    "deploy": "vercel --prod"
+  },
+  "dependencies": {
+    "@vercel/kv": "^3.0.0",
+    "stripe": "^17.0.0"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

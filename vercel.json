@@ -1,0 +1,14 @@
+{
+  "rewrites": [
+    { "source": "/a", "destination": "/kingdom-scaling-principles-embedded-lp/index.html" },
+    { "source": "/b", "destination": "/kingdom-scaling-principles-vsl-embedded-lp/index.html" }
+  ],
+  "headers": [
+    {
+      "source": "/api/(.*)",
+      "headers": [
+        { "key": "Cache-Control", "value": "no-store, max-age=0" }
+      ]
+    }
+  ]
+}
