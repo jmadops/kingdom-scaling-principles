@@ -1631,3 +1631,147 @@ h1, h2, h3, h4, h5, h6 {
         padding: 28px 26px 26px;
     }
 }
+
+/* ============================================
+   GOOGLE REVIEWS SECTION
+   ============================================ */
+.section-google-reviews {
+    background-color: #f6f5f2;
+    color: #1c1919;
+}
+
+.section-google-reviews .section-heading {
+    color: #1c1919;
+}
+
+.google-badge-wrap {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 36px;
+}
+
+.google-reviews-wrap {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.google-reviews-more {
+    margin-top: 28px;
+    text-align: center;
+}
+
+.google-reviews-more > summary {
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-family: 'Sora', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: #c2a859;
+    padding: 13px 28px;
+    border: 1.5px solid rgba(194, 168, 89, 0.4);
+    border-radius: 100px;
+    background-color: rgba(194, 168, 89, 0.06);
+    transition: background-color 0.25s ease, border-color 0.25s ease, color 0.25s ease;
+    list-style: none;
+}
+
+.google-reviews-more > summary::-webkit-details-marker { display: none; }
+
+.google-reviews-more > summary::after {
+    content: '▾';
+    font-family: 'Open Sans', sans-serif;
+    font-size: 13px;
+    transition: transform 0.25s ease;
+}
+
+.google-reviews-more[open] > summary::after {
+    transform: rotate(180deg);
+}
+
+.google-reviews-more > summary:hover {
+    background-color: rgba(194, 168, 89, 0.12);
+    border-color: #c2a859;
+    color: #a89148;
+}
+
+.google-reviews-long-wrap {
+    margin-top: 32px;
+    max-width: 1100px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* ============================================
+   FAQ SECTION
+   ============================================ */
+.section-faq {
+    background-color: #f6f5f2;
+    color: #1c1919;
+    padding-top: 40px;
+}
+
+.section-faq .section-heading {
+    color: #1c1919;
+}
+
+.faq-item {
+    background-color: #ffffff;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
+    border: 1px solid rgba(28, 25, 25, 0.05);
+    overflow: hidden;
+}
+
+.faq-item summary {
+    cursor: pointer;
+    padding: 20px 24px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    color: #1c1919;
+    text-transform: none;
+    letter-spacing: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    list-style: none;
+    transition: color 0.2s ease;
+}
+
+.faq-item summary::-webkit-details-marker { display: none; }
+
+.faq-item summary::after {
+    content: '+';
+    font-family: 'Montserrat', sans-serif;
+    font-size: 22px;
+    font-weight: 400;
+    color: #c2a859;
+    transition: transform 0.25s ease;
+    line-height: 1;
+}
+
+.faq-item[open] summary::after {
+    content: '\2013';
+}
+
+.faq-item:hover summary { color: #c2a859; }
+
+.faq-body { padding: 0 24px 22px; }
+
+.faq-body p {
+    font-size: 15px;
+    line-height: 1.75;
+    color: #555;
+}
+
+@media (max-width: 768px) {
+    .section-faq { padding-top: 28px; }
+    .faq-item summary { padding: 18px 20px; font-size: 14px; }
+    .faq-body { padding: 0 20px 18px; }
+    .google-reviews-more > summary { padding: 12px 22px; font-size: 11px; }
+}
