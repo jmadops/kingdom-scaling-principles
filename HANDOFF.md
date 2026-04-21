@@ -11,7 +11,7 @@
 ### 1. Stripe (10 min)
 - `pk_live_...` and `sk_live_...` (+ test-mode versions)
 - Create a **$17.99 one-time Product** → send me the `price_...` ID
-- Add webhook endpoint at `https://{domain}/api/stripe-webhook` listening to `checkout.session.completed` → send me the `whsec_...` signing secret
+- Add webhook endpoint at `https://scaling.riseupkings.com/api/stripe-webhook` listening to `checkout.session.completed` → send me the `whsec_...` signing secret
 
 ### 2. Go High Level (15 min)
 - Confirm which sub-account
@@ -22,7 +22,7 @@
 ### 3. Vercel (5 min)
 - Invite `jay@jayjmilne.com` to the project
 - Enable **Vercel KV** on the project (free tier)
-- Confirm custom domain (e.g. `scaling.riseupkings.com`) and give DNS access
+- Custom domain: `scaling.riseupkings.com` — give DNS access so Vercel can be pointed at it
 
 ### 4. Ad pixels (whatever you're running)
 - Meta Pixel ID (+ CAPI token if you have it)

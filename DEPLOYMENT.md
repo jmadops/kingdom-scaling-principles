@@ -53,14 +53,14 @@ For each of these, paste the value and select **Production** + **Preview** + **D
 After Vercel gives you a deploy URL (or after you've pointed a custom domain), tell Stripe where to send payment events.
 
 1. Stripe Dashboard → **Developers** → **Webhooks** → **+ Add endpoint**
-2. Endpoint URL: `https://<your-domain>/api/stripe-webhook`
+2. Endpoint URL: `https://scaling.riseupkings.com/api/stripe-webhook`
 3. Events to send: `checkout.session.completed` (that's all we need for v1)
 4. Save → click the new endpoint → **Signing secret → Reveal** → paste into `STRIPE_WEBHOOK_SECRET` in Vercel
 5. Trigger a redeploy (Vercel → Deployments → top one → Redeploy)
 
 ## Step 5 — Point the custom domain
 
-1. Vercel project → **Settings** → **Domains** → add the domain (e.g. `scaling.riseupkings.com`)
+1. Vercel project → **Settings** → **Domains** → add `scaling.riseupkings.com`
 2. Vercel tells you what DNS records to add — add them at your DNS provider
 3. Wait for propagation (usually < 5 min)
 
@@ -75,7 +75,7 @@ Only needed if Apple Pay should appear in checkout.
 
 With everything wired up:
 
-1. Visit `https://<your-domain>/kingdom-scaling-principles-vsl-embedded-lp/` (or wherever traffic is pointed)
+1. Visit `https://scaling.riseupkings.com/b` (VSL) or `https://scaling.riseupkings.com/a` (control)
 2. Scroll to the checkout section at the bottom
 3. Enter a test name + email
 4. Click **Complete My Registration**

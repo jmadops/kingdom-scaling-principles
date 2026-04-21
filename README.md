@@ -26,8 +26,8 @@ Static landing pages + embedded Stripe checkout + Go High Level integration + op
 
 ## The two live test pages
 
-- `https://{domain}/a` — No VSL (control)
-- `https://{domain}/b` — VSL (treatment)
+- `https://scaling.riseupkings.com/a` — No VSL (control)
+- `https://scaling.riseupkings.com/b` — VSL (treatment)
 
 Vercel rewrites `/a` → `kingdom-scaling-principles-embedded-lp/` and `/b` → `kingdom-scaling-principles-vsl-embedded-lp/` (see `vercel.json`).
 

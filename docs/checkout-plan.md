@@ -70,7 +70,7 @@ Surrounding the Stripe widget: testimonials, trust badges, guarantee, FAQ — fu
 
 ### Stripe side
 1. Dashboard → **Developers → Webhooks → + Add endpoint**
-2. Endpoint URL = `https://{your-domain}/api/stripe-webhook`
+2. Endpoint URL = `https://scaling.riseupkings.com/api/stripe-webhook`
 3. Events to subscribe: **`checkout.session.completed`** (add `checkout.session.async_payment_succeeded` and `...async_payment_failed` only if you enable ACH/bank debits)
 4. Save → click the new endpoint → **Signing secret → Reveal** → copy `whsec_...` into env var `STRIPE_WEBHOOK_SECRET`
 

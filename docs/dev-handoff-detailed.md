@@ -38,7 +38,7 @@ I need three things from you: Stripe access, GHL access, and Vercel access. Ever
   `STRIPE_SECRET_KEY`, `STRIPE_WEBHOOK_SECRET`, `STRIPE_PRICE_ID`, `GHL_WEBHOOK_URL`, `DASHBOARD_PASSWORD`, `KV_REST_API_URL`, `KV_REST_API_TOKEN`
   — either give me "Environment Variables" permission or set them yourself once I send values.
 - I'll also need **Vercel KV** enabled on the project (free tier is fine — stores our analytics counters for the dashboard).
-- Confirm the **custom domain** / subdomain this should run under (e.g. `scaling.riseupkings.com` or similar). I'll need DNS access or someone who can add the records Vercel gives us.
+- **Custom domain:** `scaling.riseupkings.com`. I'll need DNS access or someone who can add the records Vercel gives us.
 
 ### 4. Ad pixels (for tracking paid traffic)
 
