@@ -1647,6 +1647,7 @@ h1, h2, h3, h4, h5, h6 {
 .google-badge-wrap {
     display: flex;
     justify-content: center;
+    margin-top: 56px;
     margin-bottom: 36px;
 }
 
