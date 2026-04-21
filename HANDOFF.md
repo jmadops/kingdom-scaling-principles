@@ -1,6 +1,6 @@
 # KSP Funnel — Dev Handoff
 
-**What:** $29 2-day virtual event. 50/50 A/B test (VSL vs. no-VSL) with embedded Stripe checkout. Lead data goes to Go High Level. Paid ads incoming.
+**What:** $17.99 2-day virtual event. 50/50 A/B test (VSL vs. no-VSL) with embedded Stripe checkout. Lead data goes to Go High Level. Paid ads incoming.
 
 **Stack:** Static HTML + Vercel serverless functions + Vercel KV (for dashboard).
 
@@ -10,7 +10,7 @@
 
 ### 1. Stripe (10 min)
 - `pk_live_...` and `sk_live_...` (+ test-mode versions)
-- Create a **$29 one-time Product** → send me the `price_...` ID
+- Create a **$17.99 one-time Product** → send me the `price_...` ID
 - Add webhook endpoint at `https://{domain}/api/stripe-webhook` listening to `checkout.session.completed` → send me the `whsec_...` signing secret
 
 ### 2. Go High Level (15 min)
@@ -50,6 +50,6 @@ KV_REST_API_TOKEN=<auto-filled by Vercel when KV is enabled>
 
 ## Total effort once keys are in
 
-**~3–4 hours** to finish wiring the frontend to the API routes, test a real $29 transaction + refund, flip DNS, confirm dashboard is pulling live data.
+**~3–4 hours** to finish wiring the frontend to the API routes, test a real $17.99 transaction + refund, flip DNS, confirm dashboard is pulling live data.
 
 Thanks — Jay
