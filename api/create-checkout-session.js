@@ -9,23 +9,20 @@ export default async function handler(req, res) {
 
     const { name, email, variant } = req.body || {};
 
-    if (!email) {
-        return res.status(400).json({ error: 'email required' });
-    }
-
     try {
-        const session = await stripe.checkout.sessions.create({
+        const params = {
             ui_mode: 'embedded',
             mode: 'payment',
             line_items: [{ price: process.env.STRIPE_PRICE_ID, quantity: 1 }],
-            customer_email: email,
             metadata: {
                 name: name || '',
                 variant: variant || 'unknown',
                 event: 'kingdom-scaling-principles',
             },
             return_url: `${req.headers.origin}/thank-you/?session_id={CHECKOUT_SESSION_ID}`,
-        });
+        };
+        if (email) params.customer_email = email;
+        const session = await stripe.checkout.sessions.create(params);
 
         res.status(200).json({ clientSecret: session.client_secret });
     } catch (err) {

@@ -27,8 +27,8 @@ export default async function handler(req, res) {
     if (event.type === 'checkout.session.completed') {
         const session = event.data.object;
         const variant = session.metadata?.variant || 'unknown';
-        const name = session.metadata?.name || '';
-        const email = session.customer_email || session.customer_details?.email;
+        const name = session.customer_details?.name || session.metadata?.name || '';
+        const email = session.customer_details?.email || session.customer_email;
         const today = new Date().toISOString().slice(0, 10);
         const amountDollars = (session.amount_total || 0) / 100;
 
