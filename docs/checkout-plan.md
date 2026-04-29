@@ -46,7 +46,7 @@ Surrounding the Stripe widget: testimonials, trust badges, guarantee, FAQ — fu
 **Two small serverless functions. No full backend. No database.** GHL holds the contact record. Stripe holds the payment record.
 
 ### Why this shape
-- **Stripe Embedded Checkout** (not Payment Element) gives us a branded, on-page experience with wallets (Apple Pay / Google Pay), 3DS, SCA, and receipts for free. Payment Element is more customizable but overkill for one $17.99 SKU.
+- **Stripe Embedded Checkout** (not Payment Element) gives us a branded, on-page experience with wallets (Apple Pay / Google Pay), 3DS, SCA, and receipts for free. Payment Element is more customizable but overkill for one $7 SKU.
 - **GHL Inbound Webhook** (not API v2 directly) because: no secrets in the browser, no OAuth refresh dance, and the non-technical operator can edit the downstream workflow visually inside GHL.
 - Stripe's **client-only** no-server mode was **removed in the 2026-03-25 API release**, so the serverless function is mandatory now, not optional.
 
@@ -60,7 +60,7 @@ Surrounding the Stripe widget: testimonials, trust badges, guarantee, FAQ — fu
 | **Browser (public)** | GHL **Inbound Webhook URL** | Unique random URL generated when you create the workflow trigger. Treat as low-sensitivity — anyone with it can POST, so use idempotent logic. |
 | **Serverless env var** | Stripe **Secret key** `sk_live_...` | Never in frontend. Dashboard → Developers → API keys → Reveal secret key. |
 | **Serverless env var** | Stripe **Webhook signing secret** `whsec_...` | Created when you add a webhook endpoint (below). Used to verify webhook authenticity. |
-| **Stripe Dashboard** | **Price ID** `price_...` | Created when you add the $17.99 Product. Hardcoded into the serverless function. |
+| **Stripe Dashboard** | **Price ID** `price_...` | Created when you add the $7 Product. Hardcoded into the serverless function. |
 
 **Test mode vs Live mode each have their own keys and webhook secret.** Build with test keys first, flip to live for launch.
 
@@ -85,7 +85,7 @@ Surrounding the Stripe widget: testimonials, trust badges, guarantee, FAQ — fu
 ### Stripe Product/Price (one-time)
 1. Dashboard → **Product catalog → + Add product**
 2. Name: `Kingdom Scaling Principles — 2-Day Virtual Event`
-3. Pricing = **Flat rate**, **One time**, **$17.99 USD**
+3. Pricing = **Flat rate**, **One time**, **$7 USD**
 4. Save → copy the `price_...` ID into the serverless function
 
 ---

@@ -4,11 +4,11 @@ Copy-paste this into Slack / email / wherever you talk to them.
 
 ---
 
-**Subject:** Access needed to wire up the KSP funnel ($17.99 2-day event)
+**Subject:** Access needed to wire up the KSP funnel ($7 2-day event)
 
 Hey team —
 
-We're launching a custom funnel for the **Kingdom Scaling Principles** 2-day virtual event ($17.99). The pages are built and are running a **50/50 A/B test** (VSL vs. no-VSL hero) with **embedded Stripe checkout** on both. Traffic is coming from paid ads.
+We're launching a custom funnel for the **Kingdom Scaling Principles** 2-day virtual event ($7). The pages are built and are running a **50/50 A/B test** (VSL vs. no-VSL hero) with **embedded Stripe checkout** on both. Traffic is coming from paid ads.
 
 The full funnel will live on **Vercel**. I've built a small ops dashboard that reads live data from Stripe + our own tracking — that also lives in the same Vercel project.
 
@@ -19,7 +19,7 @@ I need three things from you: Stripe access, GHL access, and Vercel access. Ever
 ### 1. Stripe
 
 - **Publishable key** (`pk_live_...`) and **Secret key** (`sk_live_...`) — from Stripe Dashboard → Developers → API keys. Also send the **test-mode equivalents** (`pk_test_...` / `sk_test_...`) so I can test before flipping live.
-- Please confirm (or create) a **$17.99 one-time Product** named `Kingdom Scaling Principles — 2-Day Virtual Event` and send me the **Price ID** (`price_...`).
+- Please confirm (or create) a **$7 one-time Product** named `Kingdom Scaling Principles — 2-Day Virtual Event` and send me the **Price ID** (`price_...`).
 - Once the Vercel project is deployed, I need a **webhook endpoint** in the Stripe Dashboard pointing at `https://{our-domain}/api/stripe-webhook`, subscribed to `checkout.session.completed`. Either set it up and send me the **signing secret** (`whsec_...`), or give me admin access to do it myself.
 - If Apple Pay / Google Pay are important for this launch: our domain also needs to be registered under **Settings → Payment methods → Apple Pay → Register domain** once deployed.
 
@@ -62,7 +62,7 @@ I'll fire the standard events: `PageView`, `InitiateCheckout`, `Purchase`.
 - Ops dashboard (prototype with mock data) — done, wires to real data once Vercel + Stripe are connected
 - Brand assets — done
 
-**What to expect once I have everything:** ~4–6 hours to wire up Stripe + GHL + pixels, deploy to Vercel, configure DNS, and test end-to-end with a real $17.99 transaction + refund.
+**What to expect once I have everything:** ~4–6 hours to wire up Stripe + GHL + pixels, deploy to Vercel, configure DNS, and test end-to-end with a real $7 transaction + refund.
 
 Thanks —
 Jay

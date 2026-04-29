@@ -65,9 +65,9 @@ Full-width area chart — cumulative revenue, stacked by variant. Pretty, motiva
 
 ### 6. Live activity feed
 Scrolling list of recent events, newest first:
-- `2m ago · Purchase · Variant B · Alex M. · $17.99`
+- `2m ago · Purchase · Variant B · Alex M. · $7`
 - `4m ago · Form started · Variant A · (anonymous)`
-- `7m ago · Purchase · Variant A · Sarah K. · $17.99`
+- `7m ago · Purchase · Variant A · Sarah K. · $7`
 - `11m ago · Page view · Variant B · UTM: meta-lookalike`
 
 Makes the dashboard feel alive during a launch.
